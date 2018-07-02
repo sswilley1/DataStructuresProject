@@ -20,7 +20,7 @@ public class LotteryNumberPicker {
 		this.hotNums = hotNums;
 	}
 	
-	//undeclared
+	//Jordan
 	public int getLottoNum() {
 		return lottoNum;
 	}
