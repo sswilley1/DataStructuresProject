@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.sql.*;
 import java.util.Scanner;
 
-public class Driver {
+public class Driver {       // Frankie & Anthony
 
     private static String url = "jdbc:mysql://localhost:3306/lottery_database?useSSL=false&requireSSL=false";
     private static String user = "root";
