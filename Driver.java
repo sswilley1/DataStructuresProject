@@ -70,7 +70,7 @@ public class Driver {
             }
 
             // 3a. Execute SQL Query (to show table data)
-            // ResultSet myRs = myStmt.executeQuery("select * from mega_millions");
+            ResultSet myRs = myStmt.executeQuery("select * from mega_millions");
             ResultSet myRs = myStmt.executeQuery("select * from powerball");
 
             // System.out.println();
