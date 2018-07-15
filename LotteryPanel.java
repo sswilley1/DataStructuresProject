@@ -12,7 +12,7 @@ public class LotteryPanel extends JPanel {
  JScrollPane pane;
  private int width, height;
  
- public LotteryPanel() {
+ public LotteryPanel(Lotteries parent) {
   width = 640;
   height = 480;
   
@@ -39,9 +39,9 @@ public class LotteryPanel extends JPanel {
   label3.setFont(smallFont);
   list.setFont(smallFont);
   
-  //quickPick.addActionListener(parent);
-  //store.addActionListener(parent);
-  //button3.addActionListener(parent);
+  quickPick.addActionListener(parent);
+  store.addActionListener(parent);
+  button3.addActionListener(parent);
   
   JPanel upperPanel = new JPanel();
   upperPanel.setLayout(new BoxLayout(upperPanel, BoxLayout.PAGE_AXIS));
