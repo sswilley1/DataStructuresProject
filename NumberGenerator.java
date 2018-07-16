@@ -23,21 +23,19 @@ class NumberGenerator {
     Columns:  id, date, num_1, num_2, num_3, num_4, num_5, money_ball, multiplier
     */
 
-    static void powerBall() {
+    static int powerBall() {
 
         money_ball = rand.nextInt(26) + 1;
-        System.out.print(money_ball);
-
+        return money_ball;
     }
 
-    static void megaBall() {
+    static int megaBall() {
 
         money_ball = rand.nextInt(25) + 1;
-        System.out.print(money_ball);
-
+        return money_ball;
     }
 
-    static void powerballNumGenerator() {
+    static int[] powerballNumGenerator() {
 
         int rNum;
         for (int i = 0; i < 5; i++) {
@@ -46,19 +44,13 @@ class NumberGenerator {
             while (match(mainNumbers, rNum)) {
                 rNum = rand.nextInt(69) + 1;
             }
-
             mainNumbers[i]=rNum;
-
-
         }
         sort(mainNumbers);
-
-        for (int i = 0; i < mainNumbers.length; i++) {
-            System.out.print(mainNumbers[i] + " ");
-        }
+        return mainNumbers;
     }
 
-    static void megaMillionsNumGenerator() {
+    static int[] megaMillionsNumGenerator() {
 
         int rNum;
         for (int i = 0; i < 5; i++) {
@@ -67,16 +59,10 @@ class NumberGenerator {
             while (match(mainNumbers, rNum)) {
                 rNum = rand.nextInt(70) + 1;
             }
-
             mainNumbers[i]=rNum;
-
-
         }
         sort(mainNumbers);
-
-        for (int i = 0; i < mainNumbers.length; i++) {
-            System.out.print(mainNumbers[i] + " ");
-        }
+        return mainNumbers;
     }
 
 
