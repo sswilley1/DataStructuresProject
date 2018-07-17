@@ -10,8 +10,6 @@ public class GameChoice extends JFrame implements ActionListener  {
 
 	JFrame frame = new JFrame();
 	
-
-	
 	private static final long serialVersionUID = 1L;
 	
 	//This initializes the labels and buttons.
@@ -21,7 +19,7 @@ public class GameChoice extends JFrame implements ActionListener  {
 	
 	public GameChoice()
 	{
-		
+		//creates tabs
 		JPanel panel1 = new JPanel();
 		JPanel gameChoicePanel = new JPanel(new GridLayout(4,4,4,4));
 		
@@ -102,7 +100,7 @@ public class GameChoice extends JFrame implements ActionListener  {
 	
 
 	public static void main(String[] args) {
-
+		
 		GameChoice a = new GameChoice();
 		a.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		a.setVisible(true);
