@@ -8,8 +8,6 @@ import javax.swing.*;
 
 public class GameChoice extends JFrame implements ActionListener  {
 
-	
-	//initializations
 	JFrame frame = new JFrame();
 	
 
