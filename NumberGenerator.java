@@ -11,10 +11,11 @@ class NumberGenerator {
     private static String user = "sql9247157";
     private static String password = "ZY9rN5phwb";
     private static Random rand = new Random();
-    private static int[] mainNumbers = new int[5];
-    private static int money_ball;
+    static int[] mainNumbers = new int[5];
+    static int num_1, num_2, num_3, num_4, num_5, money_ball, fuck;
 
     /*
+    // MySQL DB Info
     Mega Millions table:  mm_table
     Powerball table:  powerball_table
     MM user quick picks table:  mm_quickpicks
@@ -27,12 +28,14 @@ class NumberGenerator {
 
         money_ball = rand.nextInt(26) + 1;
         return money_ball;
+
     }
 
     static int megaBall() {
 
         money_ball = rand.nextInt(25) + 1;
         return money_ball;
+
     }
 
     static int[] powerballNumGenerator() {
@@ -40,13 +43,14 @@ class NumberGenerator {
         int rNum;
         for (int i = 0; i < 5; i++) {
             rNum = rand.nextInt(69) + 1;
-
             while (match(mainNumbers, rNum)) {
                 rNum = rand.nextInt(69) + 1;
             }
+
             mainNumbers[i]=rNum;
         }
         sort(mainNumbers);
+
         return mainNumbers;
     }
 
@@ -55,13 +59,14 @@ class NumberGenerator {
         int rNum;
         for (int i = 0; i < 5; i++) {
             rNum = rand.nextInt(70) + 1;
-
             while (match(mainNumbers, rNum)) {
                 rNum = rand.nextInt(70) + 1;
             }
+
             mainNumbers[i]=rNum;
         }
         sort(mainNumbers);
+
         return mainNumbers;
     }
 
@@ -75,7 +80,7 @@ class NumberGenerator {
         return false;
     }
 
-    private static void sort(int[] aNum){
+    static void sort(int[] aNum){
         for(int i =0; i<aNum.length-1; i++){
             for(int j=i+1; j<aNum.length; j++){
                 if(aNum[i]>aNum[j]) {
@@ -85,10 +90,41 @@ class NumberGenerator {
                 }
             }
         }
+
+        for (int k = 0; k < aNum.length; k++) {
+            if(k==0){
+                num_1=aNum[k];
+            }else if(k==1){
+                num_2=aNum[k];
+            }else if(k==2){
+                num_3=aNum[k];
+            }else if(k==3){
+                num_4=aNum[k];
+            }else{
+                num_5=aNum[k];
+            }
+        }
+
     }
 
-    static void numFrequency() {
+    static void printPBQuickPick(int[] mainNumbers) {
+        int x;
+        int size = mainNumbers.length;
+        for (int i = 0; i < size; i++) {
+            x = mainNumbers[i];
+            System.out.print(x + " ");
+        }
+        System.out.print(powerBall());
+    }
 
+    static void printMMQuickPick(int[] mainNumbers) {
+        int x;
+        int size = mainNumbers.length;
+        for (int i = 0; i < size; i++) {
+            x = mainNumbers[i];
+            System.out.print(x + " ");
+        }
+        System.out.print(megaBall());
     }
 
     static void dbConnect() {
@@ -104,17 +140,32 @@ class NumberGenerator {
         }
     }
 
+    static String transferMMFinal() {
+        return num_1 + " " + num_2 + " " + num_3+ " " + num_4 + " " +num_5 + " " + money_ball;
+    }
+
+
+    static String transferPBFinal() {
+
+        return num_1 + " " + num_2 + " " + num_3+ " " + num_4 + " " +num_5 + " " + money_ball;
+    }
+
     public static void main(String[] args) {
 
-        NumberGenerator connectNow = new NumberGenerator();
-        connectNow.dbConnect();
+        // NumberGenerator connectNow = new NumberGenerator();
+        // connectNow.dbConnect();
 
-        powerballNumGenerator();
-        powerBall();
+        printPBQuickPick(powerballNumGenerator());
         System.out.println();
 
-        megaMillionsNumGenerator();
-        megaBall();
+        System.out.println(transferPBFinal());
+        System.out.println();
+
+        printMMQuickPick(megaMillionsNumGenerator());
+        System.out.println();
+
+        System.out.println(transferMMFinal());
+        System.out.println();
     }
 
 }
